@@ -2,14 +2,11 @@
 
 = Flex Date Problems =
 
-The following is a detailed explanation of the problems with Flex Dates
+== No Time Zone Support ==
+The Flex SDK provides no support for Time Zones. A Flex Date has a UTC offset, but this is not the same as a Time Zone. A UTC offset changes based on a Time Zone and a Date. A Time Zone typically has two different UTC offsets: one for Day Light Savings (DST) and a standard one. Time Zone laws also change periodically; US and Canadian Day Light Savings (DST) laws changed in 2007. Calculating the UTC offset for a given Date and Time Zone is dependent on the Time Zone laws at the appropriate time. Multiple Time Zones have the same UTC offset as well, so a give UTC offset does not translate to one Time Zone. Lastly, users do not typically interact with UTC offsets; they typically interact with Time Zones.
 
+== UTC offset cannot be controlled ==
+The Flex Date provides a timeZoneOffset property which represents the difference in minutes from UTC and the client computers local time. Because this is a property on a Date object, it is tempting to believe that it is specific to that Date object instance and that different Date objects may have different timeZoneOffset values. This is not true. The timeZoneOffset property is the same for all Date objects instances on a given client computer. This property should be a static value, it represents the client computers UTC offset; it has nothing to do with a specific date and it cannot be changed by the developer.
 
-= No Time Zone Support =
-todo...
-
-= UTC offset cannot be controlled =
-todo...
-
-= Dates are confusing = 
-todo...
+== Date Offsets are confusing == 
+Flex Dates can only store values in the client computers local offset. A developer cannot control or predict what the client's computer offset will be; also, there is no reason to trust that the client computers offset is correct. An individual may live on the east coast and be traveling to the west coast, their computer's offset may still reflect the east coast even though they are on the west coast. Depending on how a developer creates a Date, the client's offset may be applied even if that is not desired: notably this happens when serializing Dates from the server using BlazeDS as well as creating Dates from a formatted String. Although there is nothing buggy about the Flex Date object, using it often results in many difficult bugs.
