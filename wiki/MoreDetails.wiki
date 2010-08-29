@@ -1,0 +1,15 @@
+#summary Details explanation of the Flex Date Problems
+
+= Flex Date Problems =
+
+The following is a detailed explanation of the problems with Flex Dates
+
+
+= No Time Zone Support =
+todo...
+
+= UTC offset cannot be controlled =
+todo...
+
+= Dates are confusing = 
+todo...
