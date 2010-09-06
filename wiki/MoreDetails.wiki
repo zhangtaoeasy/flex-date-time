@@ -10,5 +10,5 @@ The Flex Date provides a timeZoneOffset property which represents the difference
 
 In my opinion, this offset value should be a static property on the Date object.
 
-== Date Offsets are confusing and applied whether you want it or not == 
+== Date offsets are confusing and applied whether you want it or not == 
 Flex Dates can only store values in the client computers local offset. A developer cannot control or predict what the client's computer offset will be; also, there is no reason to trust that the client computers offset is correct. An individual may live on the east coast and be traveling to the west coast, their computer's offset may still reflect the east coast even though they are on the west coast. Depending on how a developer creates a Date, the client's offset may be applied even if that is not desired: notably this happens when serializing Dates from the server using BlazeDS as well as creating Dates from a formatted String. Although there is nothing buggy about the Flex Date object, using it often results in many difficult bugs.
