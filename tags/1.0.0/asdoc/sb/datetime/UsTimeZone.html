@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../override.css" type="text/css"><meta name="keywords" content="UsTimeZone,sb.datetime.UsTimeZone,AKST,ALL,ALL,AMERICA_ADAK,AMERICA_ANCHORAGE,AMERICA_BOISE,AMERICA_CHICAGO,AMERICA_DENVER,AMERICA_DETROIT,AMERICA_INDIANA_INDIANAPOLIS,AMERICA_INDIANA_KNOX,AMERICA_INDIANA_MARENGO,AMERICA_INDIANA_PETERSBURG,AMERICA_INDIANA_TELL_CITY,AMERICA_INDIANA_VEVAY,AMERICA_INDIANA_VINCENNES,AMERICA_INDIANA_WINAMAC,AMERICA_JUNEAU,AMERICA_KENTUCKY_LOUISVILLE,AMERICA_KENTUCKY_MONTICELLO,AMERICA_LOS_ANGELES,AMERICA_MENOMINEE,AMERICA_NEW_YORK,AMERICA_NOME,AMERICA_NORTH_DAKOTA_CENTER,AMERICA_NORTH_DAKOTA_NEW_SALEM,AMERICA_PHOENIX,AMERICA_SHIPROCK,AMERICA_YAKUTAT,APR,ARIZONA,AUG,CST,DEC,EST,FEB,FRIDAY,HST,JAN,JUL,JUN,MAR,MAY,MONDAY,MST,NOV,OCCURRENCE_NOT_IN_MONTH_ID,OCCURRENCE_NOT_IN_MONTH_MESSAGE,OCT,PACIFIC_HONOLULU,PST,SEP,SUNDAY,THURSDAY,TUESDAY,UTC,UTC_MINUS_1,UTC_MINUS_10,UTC_MINUS_11,UTC_MINUS_12,UTC_MINUS_2,UTC_MINUS_3,UTC_MINUS_3_30,UTC_MINUS_4,UTC_MINUS_4_30,UTC_MINUS_5,UTC_MINUS_6,UTC_MINUS_7,UTC_MINUS_8,UTC_MINUS_9,UTC_MINUS_9_30,UTC_PLUS_10,UTC_PLUS_10_30,UTC_PLUS_11,UTC_PLUS_11_30,UTC_PLUS_12,UTC_PLUS_12_45,UTC_PLUS_13,UTC_PLUS_1,UTC_PLUS_14,UTC_PLUS_2,UTC_PLUS_3,UTC_PLUS_3_30,UTC_PLUS_4,UTC_PLUS_4_30,UTC_PLUS_5,UTC_PLUS_5_30,UTC_PLUS_5_45,UTC_PLUS_6,UTC_PLUS_6_30,UTC_PLUS_7,UTC_PLUS_8,UTC_PLUS_9,UTC_PLUS_9_30,UTC,WEDNESDAY,ZERO_OCCURRENCE_ID,ZERO_OCCURRENCE_MESSAGE,countryCode,day,dayOfWeek,dst,hour,id,minute,month,offset,second,time,timeZone,year"><title>sb.datetime.UsTimeZone</title></head><body><script language="javascript" type="text/javascript" src="../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../help.js"></script><script language="javascript" type="text/javascript" src="../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'UsTimeZone - API Documentation';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">API Documentation</td><td class="titleTableTopNav" align="right"><a href="../../package-summary.html" onclick="loadClassListFrame('../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../class-summary.html" onclick="loadClassListFrame('../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../all-index-A.html" onclick="loadClassListFrame('../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../index.html?sb/datetime/UsTimeZone.html&amp;sb/datetime/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">UsTimeZone</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("UsTimeZone"); titleBar_setSubNav(true,true,false,false,false,false,false,false,false,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">sb.datetime</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  UsTimeZone</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">UsTimeZone  <img src="../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+	              <p>A convience class for easy access to the standard US TimeZones</p>
+	 
+	              <p>Although it is technically incorrect to reference TimeZones by
+	 abbreviations, they are commonly well known by them. Users most
+	 typically will not understand or care about the Technically correct
+	 TimeZone IDs.</p>
+	 
+	              <p>The 7 standard TimeZones listed here by abbreviations correspond to
+	 to TimeZones in the TimeZone enumeration.</p>
+	 
+	              <ul>
+	                 <li>
+                     <b>EST</b> Eastern Standard Time = TimeZone.AMERICA_NEW_YORK</li>
+	                 <li>
+                     <b>CST</b> Central Standard Time = TimeZone.AMERICA_CHICAGO</li>
+	                 <li>
+                     <b>MST</b> Mountain Standard Time = TimeZone.AMERICA_DENVER</li>
+	                 <li>
+                     <b>ARIZONA</b> Arizona Time = TimeZone.AMERICA_PHOENIX</li>
+	                 <li>
+                     <b>PST</b> Pacific Standard Time = TimeZone.AMERICA_LOS_ANGELES</li>
+	                 <li>
+                     <b>AKST</b> Alaskan Standard Time = TimeZone.AMERICA_ANCHORAGE</li>
+	                 <li>
+                     <b>HST</b> Hawaiian Standard Time = TimeZone.PACIFIC_HONOLULU</li>
+	              </ul>
+	 	         <p></p><p><span class="classHeaderTableLabel">See also</span></p><div class="seeAlso"><a href="TimeZone.html" target="">TimeZone</a><br/><a href="http://en.wikipedia.org/wiki/Time_in_the_United_States#Tz_database" target="mm_external">http://en.wikipedia.org/wiki/Time_in_the_United_States#Tz_database</a></div><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ALL" class="signatureLink">ALL</a> : Vector.&lt;<a href="../../sb/datetime/TimeZone.html">TimeZone</a>&gt;<div class="summaryTableDescription">[static] [read-only] 
+		 Returns the standard US Time Zones
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#AKST" class="signatureLink">AKST</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Alaskan Standard Time
+		 
+		 
+		 id = America/Anchorage
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#ARIZONA" class="signatureLink">ARIZONA</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Arizona Time
+		 
+		 
+		 id = America/Phoenix
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CST" class="signatureLink">CST</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Central Standard Time
+		 
+		 
+		 id = America/Chicago
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#EST" class="signatureLink">EST</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Eastern Standard Time
+		 
+		 
+		 id = America/New_York
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#HST" class="signatureLink">HST</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Hawaiian Standard Time
+		 
+		 
+		 id = Pacific/Honolulu
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MST" class="signatureLink">MST</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Mountain Standard Time
+		 
+		 
+		 id = America/Denver
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#PST" class="signatureLink">PST</a> : <a href="../../sb/datetime/TimeZone.html">TimeZone</a><div class="summaryTableDescription">[static] 
+		 Pacific Standard Time
+		 
+		 
+		 id = America/Los_Angeles
+		 countryCode = US
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">UsTimeZone</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="ALL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ALL</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>ALL:Vector.&lt;<a href="../../sb/datetime/TimeZone.html">TimeZone</a>&gt;</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 Returns the standard US Time Zones
+		 
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get ALL():Vector.&lt;<a href="../../sb/datetime/TimeZone.html">TimeZone</a>&gt;</code><br/></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="AKST"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">AKST</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const AKST:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Alaskan Standard Time
+		 
+		 <ul>
+		 <li>id = America/Anchorage</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#AMERICA_ANCHORAGE" target="">TimeZone.AMERICA_ANCHORAGE</a></div></div><a name="constantDetail"></a><a name="ARIZONA"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">ARIZONA</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const ARIZONA:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Arizona Time
+		 
+		 <ul>
+		 <li>id = America/Phoenix</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#AMERICA_PHOENIX" target="">TimeZone.AMERICA_PHOENIX</a></div></div><a name="constantDetail"></a><a name="CST"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CST</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const CST:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Central Standard Time
+		 
+		 <ul>
+		 <li>id = America/Chicago</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#AMERICA_CHICAGO" target="">TimeZone.AMERICA_CHICAGO</a></div></div><a name="constantDetail"></a><a name="EST"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">EST</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const EST:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Eastern Standard Time
+		 
+		 <ul>
+		 <li>id = America/New_York</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#AMERICA_NEW_YORK" target="">TimeZone.AMERICA_NEW_YORK</a></div></div><a name="constantDetail"></a><a name="HST"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">HST</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const HST:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Hawaiian Standard Time
+		 
+		 <ul>
+		 <li>id = Pacific/Honolulu</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#PACIFIC_HONOLULU" target="">TimeZone.PACIFIC_HONOLULU</a></div></div><a name="constantDetail"></a><a name="MST"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MST</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MST:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Mountain Standard Time
+		 
+		 <ul>
+		 <li>id = America/Denver</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#AMERICA_DENVER" target="">TimeZone.AMERICA_DENVER</a></div></div><a name="constantDetail"></a><a name="PST"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">PST</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const PST:<a href="../../sb/datetime/TimeZone.html">TimeZone</a></code><p></p><p></p><p>
+		 Pacific Standard Time
+		 
+		 <ul>
+		 <li>id = America/Los_Angeles</li>
+		 <li>countryCode = US</li>
+		 </ul>
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="TimeZone.html#AMERICA_LOS_ANGELES" target="">TimeZone.AMERICA_LOS_ANGELES</a></div></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Mon Sep 6 2010, 05:42 PM -07:00  </center></div></body></html><!--<br/>Mon Sep 6 2010, 05:42 PM -07:00  -->
