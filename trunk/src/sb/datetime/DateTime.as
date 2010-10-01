@@ -375,7 +375,7 @@ package sb.datetime
 		 * 
 		 * @return The new DateTime with minute value added
 		 */
-		public function addMinute(hour:int):DateTime {
+		public function addMinute(minute:int):DateTime {
 			return DateTime.byValues(timeZone, year, month, day, hour, this.minute + minute, second);
 		}
 		
