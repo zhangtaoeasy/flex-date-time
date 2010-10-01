@@ -7,7 +7,7 @@ package sb.datetime
 		[Test]
 		public function testUtc():void {
 			
-			var dateTime:DateTime = new DateTimeByEpoch(TimeZone.UTC, 1283734140000);
+			var dateTime:DateTime = DateTime.byEpoch(1283734140000);
 			
 			assertEquals("year", dateTime.year, 2010);
 			assertEquals("month", dateTime.month, DateTimeConstant.SEP);
@@ -20,7 +20,8 @@ package sb.datetime
 		[Test]
 		public function testPst():void {
 			
-			var dateTime:DateTime = new DateTimeByEpoch(TimeZone.AMERICA_LOS_ANGELES, 1283734140000);
+			var dateTime:DateTime = DateTime.byEpoch(1283734140000);
+			dateTime = dateTime.changeTimeZone(TimeZone.AMERICA_LOS_ANGELES);
 			
 			assertEquals("year", dateTime.year, 2010);
 			assertEquals("month", dateTime.month, DateTimeConstant.SEP);
@@ -33,7 +34,8 @@ package sb.datetime
 		[Test]
 		public function testTime():void {
 			
-			var dateTime:DateTime = new DateTimeByEpoch(TimeZone.AMERICA_NEW_YORK, 1283734140000);
+			var dateTime:DateTime = DateTime.byEpoch(1283734140000);
+			dateTime = dateTime.changeTimeZone(TimeZone.AMERICA_NEW_YORK);
 			
 			assertEquals(dateTime.time, 1283734140000);
 		}

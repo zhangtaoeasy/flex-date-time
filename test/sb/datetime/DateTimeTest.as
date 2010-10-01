@@ -10,12 +10,12 @@ package sb.datetime
 		[Test]
 		public function testTime():void {
 			
-			var utcDateTime:DateTime = new DateTime(TimeZone.UTC, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
-			var estDateTime:DateTime = new DateTime(UsTimeZone.EST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
-			var cstDateTime:DateTime = new DateTime(UsTimeZone.CST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
-			var mstDateTime:DateTime = new DateTime(UsTimeZone.MST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
-			var arizonaDateTime:DateTime = new DateTime(UsTimeZone.ARIZONA, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
-			var pstDateTime:DateTime = new DateTime(UsTimeZone.PST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+			var utcDateTime:DateTime = DateTime.byValues(TimeZone.UTC, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+			var estDateTime:DateTime = DateTime.byValues(UsTimeZone.EST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+			var cstDateTime:DateTime = DateTime.byValues(UsTimeZone.CST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+			var mstDateTime:DateTime = DateTime.byValues(UsTimeZone.MST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+			var arizonaDateTime:DateTime = DateTime.byValues(UsTimeZone.ARIZONA, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+			var pstDateTime:DateTime = DateTime.byValues(UsTimeZone.PST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
 			
 			assertEquals("UTC", utcDateTime.time, 1283731200000);
 			assertEquals("EST", estDateTime.time, 1283731200000 - DateTimeConstant.UTC_MINUS_4);
@@ -28,13 +28,13 @@ package sb.datetime
 		[Test]
 		public function testDstStart():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.MAR, 14, 2, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.MAR, 14, 2, 0, 0);
 			
 			assertTrue(dateTime.dst);
 			assertFalse(dateTime.addMinute(-1).dst);
 			assertTrue(dateTime.addMinute(1).dst);
 			
-			dateTime = new DateTime(TimeZone.AMERICA_PHOENIX, 2010, DateTimeConstant.MAR, 14, 2, 0, 0);
+			dateTime = DateTime.byValues(TimeZone.AMERICA_PHOENIX, 2010, DateTimeConstant.MAR, 14, 2, 0, 0);
 			
 			assertFalse(dateTime.dst);
 			assertFalse(dateTime.addMinute(-1).dst);
@@ -43,13 +43,13 @@ package sb.datetime
 		
 		public function testDstEnd():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.NOV, 7, 2, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.NOV, 7, 2, 0, 0);
 			
 			assertFalse(dateTime.dst);
 			assertTrue(dateTime.addMinute(-1).dst);
 			assertFalse(dateTime.addMinute(1).dst);
 			
-			dateTime = new DateTime(TimeZone.AMERICA_PHOENIX, 2010, DateTimeConstant.MAR, 14, 2, 0, 0);
+			dateTime = DateTime.byValues(TimeZone.AMERICA_PHOENIX, 2010, DateTimeConstant.MAR, 14, 2, 0, 0);
 			
 			assertFalse(dateTime.dst);
 			assertFalse(dateTime.addMinute(-1).dst);
@@ -59,7 +59,7 @@ package sb.datetime
 		[Test]
 		public function testEst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -5);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, 0);
@@ -74,7 +74,7 @@ package sb.datetime
 		[Test]
 		public function testEstDst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_NEW_YORK, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -4);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, 0);
@@ -89,7 +89,7 @@ package sb.datetime
 		[Test]
 		public function testCst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_CHICAGO, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_CHICAGO, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -6);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -1);
@@ -104,7 +104,7 @@ package sb.datetime
 		[Test]
 		public function testCstDst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_CHICAGO, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_CHICAGO, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -5);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -1);
@@ -119,7 +119,7 @@ package sb.datetime
 		[Test]
 		public function testMst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_DENVER, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_DENVER, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -7);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -2);
@@ -134,7 +134,7 @@ package sb.datetime
 		[Test]
 		public function testMstDst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_DENVER, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_DENVER, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -6);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -2);
@@ -149,7 +149,7 @@ package sb.datetime
 		[Test]
 		public function testPst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_LOS_ANGELES, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_LOS_ANGELES, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -8);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -3);
@@ -164,7 +164,7 @@ package sb.datetime
 		[Test]
 		public function testPstDst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_LOS_ANGELES, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_LOS_ANGELES, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -7);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -3);
@@ -179,7 +179,7 @@ package sb.datetime
 		[Test]
 		public function testAkst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_ANCHORAGE, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_ANCHORAGE, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -9);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -4);
@@ -194,7 +194,7 @@ package sb.datetime
 		[Test]
 		public function testAkstDst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.AMERICA_ANCHORAGE, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.AMERICA_ANCHORAGE, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -8);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -4);
@@ -209,7 +209,7 @@ package sb.datetime
 		[Test]
 		public function testHst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.PACIFIC_HONOLULU, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.PACIFIC_HONOLULU, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -10);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -5);
@@ -224,7 +224,7 @@ package sb.datetime
 		[Test]
 		public function testHstDst():void {
 			
-			var dateTime:DateTime = new DateTime(TimeZone.PACIFIC_HONOLULU, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
+			var dateTime:DateTime = DateTime.byValues(TimeZone.PACIFIC_HONOLULU, 2010, DateTimeConstant.AUG, 25, 12, 0, 0);
 			
 			assertOffset(dateTime, TimeZone.UTC, -10);
 			assertOffset(dateTime, TimeZone.AMERICA_NEW_YORK, -6);

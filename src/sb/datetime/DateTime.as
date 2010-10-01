@@ -141,43 +141,14 @@ package sb.datetime
 		private var timeCalculated:Boolean;
 		
 		/**
-		 * <p>Creates a new DateTime</p>
+		 * @Private
 		 * 
-		 * <p>There are several ways to create a DateTime by using the creational
-		 * subclasses; however, all creational subclasses ultimately use this constructor.</p>
-	 	 * 
-		 * <p>This constructor also supports <i>rollover</i> values the same way that the Flex 
-		 * Date object does. For instance: creating a DateTime for September 31 will actually 
-		 * result in October 1 because September only has 30 days. This is also true for negative
-		 * numbers.</p>
-		 * 
-	     * @see DateTimeByDate
-	 	 * @see DateTimeByEpoch
-	 	 * @see DateTimeByOccurrence
-	 	 * @see DateTimeByUtcDate
-	     * @see TimeZone
-	     * @see UsTimeZone
-	 	 * 
-		 * @param timeZone The TimeZone 
-		 * @param year The year
-		 * @param month The month (0 for January, 1 for February, and so on)
-		 * @param day The day (1-31)
-		 * @param hour The hour (0-23) of the day (0=midnight, 23=11pm)
-		 * @param minute The minute (0-59) of the hour
-		 * @param second The second (0-59) of the minute
+		 * Private constructor, use static create 'by' methods
 		 */
-		public function DateTime(timeZone:TimeZone, year:int, month:int, day:int, hour:int, minute:int, second:int) {
+		public function DateTime(p:Private) {
 			
-			// use date object to take advantage of rolling dates
-			date = new Date(year, month, day, hour, minute, second, 0);
-			
-			_timeZone = timeZone;
-			_year = date.fullYear;
-			_month = date.month;
-			_day = date.date;
-			_hour = date.hours;
-			_minute = date.minutes;
-			_second = date.seconds;
+			if(null == p)
+				throw new Error("DateTime cannot be instantiated directly, use the static 'by' methods to create a new DateTime.");
 		}
 		
 		/**
@@ -326,7 +297,7 @@ package sb.datetime
 			if(new DST(timeZone, newDate.fullYear, newDate.month, newDate.date, newDate.hours, newDate.minutes).isDst()) 
 				newDate.hours += 1; 
 			
-			return new DateTime(timeZone, newDate.fullYear, newDate.month, newDate.date, newDate.hours, newDate.minutes, newDate.seconds);
+			return DateTime.byValues(timeZone, newDate.fullYear, newDate.month, newDate.date, newDate.hours, newDate.minutes, newDate.seconds);
 		}
 		
 		/**
@@ -337,7 +308,7 @@ package sb.datetime
 		 * @return The new DateTime with all the values added
 		 */
 		public function add(year:int, month:int, day:int, hour:int, minute:int, second:int):DateTime {
-			return new DateTime(timeZone, 
+			return DateTime.byValues(timeZone, 
 				this.year + year, 
 				this.month + month, 
 				this.day + day, 
@@ -354,7 +325,7 @@ package sb.datetime
 		 * @return The new DateTime with year value added
 		 */
 		public function addYear(year:int):DateTime {
-			return new DateTime(timeZone, this.year + year, month, day, hour, minute, second);
+			return DateTime.byValues(timeZone, this.year + year, month, day, hour, minute, second);
 		}
 		
 		/**
@@ -365,7 +336,7 @@ package sb.datetime
 		 * @return The new DateTime with month value added
 		 */
 		public function addMonth(month:int):DateTime {
-			return new DateTime(timeZone, year, this.month + month, day, hour, minute, second);
+			return DateTime.byValues(timeZone, year, this.month + month, day, hour, minute, second);
 		}
 		
 		/**
@@ -376,7 +347,7 @@ package sb.datetime
 		 * @return The new DateTime with day value added
 		 */
 		public function addDay(day:int):DateTime {
-			return new DateTime(timeZone, year, month, this.day + day, hour, minute, second);
+			return DateTime.byValues(timeZone, year, month, this.day + day, hour, minute, second);
 		}
 		
 		/**
@@ -387,7 +358,7 @@ package sb.datetime
 		 * @return The new DateTime with hour value added
 		 */
 		public function addHour(hour:int):DateTime {
-			return new DateTime(timeZone, year, month, day, this.hour + hour, minute, second);
+			return DateTime.byValues(timeZone, year, month, day, this.hour + hour, minute, second);
 		}
 		
 		/**
@@ -398,7 +369,7 @@ package sb.datetime
 		 * @return The new DateTime with minute value added
 		 */
 		public function addMinute(hour:int):DateTime {
-			return new DateTime(timeZone, year, month, day, hour, this.minute + minute, second);
+			return DateTime.byValues(timeZone, year, month, day, hour, this.minute + minute, second);
 		}
 		
 		/**
@@ -409,7 +380,7 @@ package sb.datetime
 		 * @return The new DateTime with second value added
 		 */
 		public function addSecond(second:int):DateTime {
-			return new DateTime(timeZone, year, month, day, hour, minute, this.second + second);
+			return DateTime.byValues(timeZone, year, month, day, hour, minute, this.second + second);
 		}
 		
 		/**
@@ -420,6 +391,171 @@ package sb.datetime
 		public function toDate():Date {
 			// copy date to make sure the original can't be changed
 			return new Date(date);
+		}
+		
+		/**
+		 * <p>Creates a new DateTime by values</p>
+		 *  
+		 * <p>This also supports <i>rollover</i> values the same way that the Flex 
+		 * Date object does. For instance: creating a DateTime for September 31 will actually 
+		 * result in October 1 because September only has 30 days. This is also true for negative
+		 * numbers.</p>
+		 * 
+		 * @see DateTimeByDate
+		 * @see DateTimeByEpoch
+		 * @see DateTimeByOccurrence
+		 * @see DateTimeByUtcDate
+		 * @see TimeZone
+		 * @see UsTimeZone
+		 * 
+		 * @param timeZone The TimeZone 
+		 * @param year The year
+		 * @param month The month (0 for January, 1 for February, and so on)
+		 * @param day The day (1-31)
+		 * @param hour The hour (0-23) of the day (0=midnight, 23=11pm)
+		 * @param minute The minute (0-59) of the hour
+		 * @param second The second (0-59) of the minute
+		 */
+		public static function byValues(timeZone:TimeZone, year:int, month:int, day:int, hour:int, minute:int, second:int):DateTime {
+			
+			var dateTime:DateTime = new DateTime(new Private());
+			
+			// use date object to take advantage of rolling dates
+			var date:Date = new Date(year, month, day, hour, minute, second, 0);
+			
+			dateTime._timeZone = timeZone;
+			dateTime._year = date.fullYear;
+			dateTime._month = date.month;
+			dateTime._day = date.date;
+			dateTime._hour = date.hours;
+			dateTime._minute = date.minutes;
+			dateTime._second = date.seconds;
+			dateTime.date = date;
+			
+			return dateTime;
+		}
+		
+		/**
+		 * <p>Creates a new DateTime using the TimeZone and the values off the Date.</p>
+		 * 
+		 * <p>The timeZoneOffset and UTC values on the Date will <b>NOT</b> be used in 
+		 * the creation of the DateTime.</p>
+		 * 
+		 * @param timeZone The TimeZone
+		 * @param date The Date to get values from
+		 * 
+		 * @return A DateTime in the TimeZone provided using the values from the Date provided
+		 */
+		public static function byDate(timeZone:TimeZone, date:Date):DateTime {
+			return DateTime.byValues(timeZone, date.fullYear, date.month, date.date, date.hours, date.minutes, date.seconds);
+		}
+		
+		/**
+		 * <p>Creates a new DateTime using UTC values off a Date. This is useful
+		 * for dates that have serialized from the server using BlazeDS. The serialization
+		 * process with BlazeDS automatically converts the Date to the clients computer
+		 * timeZoneOffset which maybe unreliable. This will create a DateTime using the
+		 * UTC offset values.</p>
+		 * 
+		 * @param date The Date to get UTC values to use for DateTime.
+		 * 
+		 * @return A DateTime in the UTC TimeZone using the UTC values from the Date provided
+		 */
+		public static function byUtcDate(date:Date):DateTime {
+			
+			return DateTime.byValues(TimeZone.UTC, date.fullYearUTC, date.monthUTC, date.dateUTC, date.hoursUTC, date.minutesUTC, date.secondsUTC);
+		}
+		
+		/**
+	 	 * <p>Creates a DateTime by the Unix epoch in milliseconds. The Unix
+	 	 * epoch is the number of milliseconds since midnight January 1, 1970.</p>
+		 * 
+		 * @param epoch The number of milliseconds since midnight January 1, 1970.
+		 * 
+		 * @return A DateTime in UTC TimeZone representing the unix epoch
+		 */
+		public static function byEpoch(epoch:Number):DateTime {
+			
+			var date:Date = new Date(epoch);
+			
+			return DateTime.byValues(TimeZone.UTC, date.fullYearUTC, date.monthUTC, date.dateUTC, date.hoursUTC, date.minutesUTC, date.secondsUTC);
+		}
+		
+		/**
+		 * Creates a DateTime by an occurrence
+		 * 
+	     * <p>This is similar to the byValues method but instead of providing a day, a dayOfWeek
+	     * and its occurence is provided. For instance, to find Thanksgiving (4th Thursday in Nov) 
+	     * for the year 2010 PST, you would do the following:</p>
+	     * 
+	     * <listing>
+    	 * // Thanksgiving 2010 at 12:00:00 p.m. pst
+	     * var dateTime:DateTime = new DateTime.byOccurrence(UsTimeZone.PST,              // TimeZone
+	     *                                                  2010,                         // year
+	     *                                                  DateTimeConstant.NOV,         // month
+	     *                                                  12,                           // hour
+	     *                                                  0,                            // minute
+	     *                                                  0,                            // second
+	     *                                                  DateTimeConstant.THURSDAY,    // dayOfWeek
+	     *                                                  4);                           // occurrences
+	     * </listing>
+	     * 
+		 * @param timeZone The TimeZone
+		 * @param year The year
+		 * @param month The month (0 for January, 1 for February, and so on)
+		 * @param hour The hour (0-23) of the day (0=midnight, 23=11pm)
+		 * @param minute The minute (0-59) of the hour
+		 * @param second The second (0-59) of the minute
+		 * @param dayOfWeek The day of the week (0 for Sunday, 1 for Monday, and so on)
+		 * @param occurence The occurence of the dayOfWeek to find (1 for first, 2 for second, -1 for last, and so on)
+		 * 
+		 * @return A DateTime in the TimeZone provided at the calculated occurence 
+		 * 
+		 * @throws DateTimeError The occurence must not be 0 and must fall within the provided month.
+		 */
+		public static function byOccurrence(timeZone:TimeZone, year:int, month:int, hour:int, minute:int, second:int, dayOfWeek:int, occurrences:int):DateTime {
+			
+			var occurencesFound:int = 0;
+			var date:Date;
+			
+			if(0 < occurrences) {
+				date = new Date(year, month, 1, hour, minute, second, 0);
+				
+				while(occurencesFound < occurrences) {
+					
+					if(date.day == dayOfWeek) {
+						occurencesFound++;
+						
+						if(occurencesFound == occurrences)
+							break; 
+					}
+					
+					date.date++;
+				}
+			}
+			else if(0 > occurrences) {
+				date = new Date(year, month+1, 1, hour, minute, second, 0);
+				date.date--;
+				
+				while(occurencesFound > occurrences) {
+					
+					if(date.day == dayOfWeek) {
+						occurencesFound--;
+						
+						if(occurencesFound == occurrences)
+							break; 
+					}
+					
+					date.date--;
+				}
+			}
+			
+			if(0 != occurrences && month == date.month)
+				return DateTime.byValues(timeZone, date.fullYear, date.month, date.date, date.hours, date.minutes, date.seconds);
+			else if(0 == occurrences)
+				throw new DateTimeError(DateTimeError.ZERO_OCCURRENCE_MESSAGE, DateTimeError.ZERO_OCCURRENCE_ID);
+			else
+				throw new DateTimeError(occurrences + " " + DateTimeError.OCCURRENCE_NOT_IN_MONTH_MESSAGE, DateTimeError.OCCURRENCE_NOT_IN_MONTH_ID);
 		}
 	}
 }
