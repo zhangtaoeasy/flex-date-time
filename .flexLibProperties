@@ -13,6 +13,7 @@
     <classEntry path="sb.datetime.DstTest"/>
     <classEntry path="sb.datetime.UsTimeZone"/>
     <classEntry path="sb.datetime.DateTimeError"/>
+    <classEntry path="sb.datetime.DateTimeMathTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
