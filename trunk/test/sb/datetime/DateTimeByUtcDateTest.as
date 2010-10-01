@@ -8,7 +8,7 @@ package sb.datetime
 		public function test():void {
 			
 			var date:Date = new Date("Tue Feb 1 00:00:00 GMT-0000 2005");
-			var dateTime:DateTime = new DateTimeByUtcDate(date);
+			var dateTime:DateTime = DateTime.byUtcDate(date);
 			
 			assertEquals(TimeZone.UTC, dateTime.timeZone);
 			assertEquals("year", dateTime.year, 2005);

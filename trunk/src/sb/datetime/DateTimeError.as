@@ -23,28 +23,40 @@
 package sb.datetime
 {
 	/**
-	 * <p>Creational subclass for DateTime.</p>
+	 * <p>Errors for DateTime</p>
 	 * 
-	 * <p>Creates a DateTime by the Unix epoch in milliseconds. The Unix
-	 * epoch is the number of milliseconds since midnight January 1, 1970.</p>
+	 * <p>The DateTime.byOccurrence() method will throw this error
+	 * if the occurence value is 0 or the occurence does not fall with
+	 * in the month.</p>
+	 * 
+	 * <ul>
+	 * <li>The occurences value cannot be zero.</li>
+	 * <li>The occurence of the dayOfWeek must fall within the month.</li>
+	 * </ul>
+	 * 
+	 * @see DateTimeByOccurrence
 	 * 
 	 * @author Scott Boring
 	 */
-	public class DateTimeByEpoch extends DateTime
+	public class DateTimeError extends Error
 	{
+		public static const ZERO_OCCURRENCE_ID:int = 10001;
+		public static const OCCURRENCE_NOT_IN_MONTH_ID:int = 10002;
+		
+		public static const ZERO_OCCURRENCE_MESSAGE:String = "0 occurrences is not valid";
+		public static const OCCURRENCE_NOT_IN_MONTH_MESSAGE:String = "Occurrence is not in month";
+		
 		/**
-		 * Creates a new DateTime using the unix epoch in milliseconds.
+		 * Creates a new DateTimeOccurrenceError used by DateTimeByOccurrence.
 		 * 
-		 * @param timeZone The TimeZone
-		 * @param epoch The number of milliseconds since midnight January 1, 1970.
+		 * @see DateTimeByOccurrence
+		 * 
+		 * @param message The message (ZERO_OCCURENCE_MESSAGE or OCCURENCE_NOT_IN_MONTH_MESSAGE)
+		 * @param id The id (ZERO_OCCURENCE_ID or OCCURENCE_NOT_IN_MONTH_ID)
 		 */
-		public function DateTimeByEpoch(timeZone:TimeZone, epoch:Number)
+		public function DateTimeError(message:String, id:int)
 		{
-			var date:Date = new Date(epoch);
-			var utcDateTime:DateTime = new DateTime(TimeZone.UTC, date.fullYearUTC, date.monthUTC, date.dateUTC, date.hoursUTC, date.minutesUTC, date.secondsUTC)
-			var dateTime:DateTime = utcDateTime.changeTimeZone(timeZone);
-				
-			super(timeZone, dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second);
+			super(message, id);
 		}
 	}
 }

@@ -2,14 +2,9 @@
 <flexLibProperties includeAllClasses="true" version="3">
   <includeClasses>
     <classEntry path="sb.datetime.DateTime"/>
-    <classEntry path="sb.datetime.DateTimeByDate"/>
-    <classEntry path="sb.datetime.DateTimeByEpoch"/>
-    <classEntry path="sb.datetime.DateTimeByOccurrence"/>
-    <classEntry path="sb.datetime.DateTimeByUtcDate"/>
     <classEntry path="sb.datetime.DateTimeConstant"/>
     <classEntry path="sb.datetime.TimeZone"/>
     <classEntry path="sb.datetime.Offset"/>
-    <classEntry path="sb.DateTimeTestSuite"/>
     <classEntry path="sb.datetime.DateTimeTest"/>
     <classEntry path="sb.datetime.DateTimeByOccurrenceTest"/>
     <classEntry path="sb.datetime.DST"/>
@@ -17,7 +12,7 @@
     <classEntry path="sb.datetime.DateTimeByUtcDateTest"/>
     <classEntry path="sb.datetime.DstTest"/>
     <classEntry path="sb.datetime.UsTimeZone"/>
-    <classEntry path="sb.datetime.DateTimeOccurrenceError"/>
+    <classEntry path="sb.datetime.DateTimeError"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
