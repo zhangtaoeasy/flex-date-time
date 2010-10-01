@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:adobe="http://www.adobe.com/2009/flexUnitUIRunner"
+               minWidth="955" minHeight="600" 
+               creationComplete="onCreationComplete()">
+    <fx:Script>
+        <![CDATA[
+            import org.flexunit.listeners.UIListener;
+            import org.flexunit.runner.FlexUnitCore;
+            
+            import sb.datetime.DateTimeByEpochTest;
+            import sb.datetime.DateTimeByOccurrenceTest;
+            import sb.datetime.DateTimeByUtcDateTest;
+            import sb.datetime.DateTimeMathTest;
+            import sb.datetime.DstTest;
+            
+            private function onCreationComplete():void
+            {
+                var core:FlexUnitCore = new FlexUnitCore();
+                core.addListener(new UIListener(testRunner));
+                core.run( getTests() );
+            }
+            
+            private function getTests():Array {
+                return [
+                    DateTimeByEpochTest,
+                    DateTimeByOccurrenceTest,
+                    DateTimeByUtcDateTest,
+                    DateTimeMathTest,
+                    DstTest
+                ];
+            }
+            
+        ]]>
+    </fx:Script>
+    <adobe:TestRunnerBase id="testRunner"/>
+</s:Application>
