@@ -25,6 +25,8 @@ package sb.datetime
 	import flash.utils.Dictionary;
 	
 	/**
+	 * @private
+	 * 
 	 * <p>The Offset for a TimeZone at a given year, month, day, hour, minute.</p>
 	 * 
 	 * <p><i>This does not include a DST offset.</i></p>
