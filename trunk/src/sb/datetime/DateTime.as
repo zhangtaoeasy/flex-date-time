@@ -25,27 +25,35 @@ package sb.datetime
 	/**
 	 * <p>An immutable DateTime object.</p>
 	 * 
-	 * <p>There a multiple ways to create a DateTime. Using the constructor on this object allows you
-	 * to create a DateTime with explicit values.</p>
+	 * <p>There a multiple ways to create a DateTime. Using the static creational methods.</p>
 	 * 
-	 * <p><b>Creational Subclasses</b></p>
+	 * <p><b>Static Creational Methods</b></p>
 	 * 
-	 * <p><i>Action Script 3 (Flex) does not support multiple constructors. DateTime uses Creational 
-	 * Subclasses to achieve multiple constructors.</i></p>
+	 * <p><i>Action Script 3 (Flex) does not support multiple constructors. DateTime uses Static
+	 * Creational methods to achieve multiple constructors.</i></p>
 	 * 
 	 * <ul>
-	 *   <li><code>DateTimeByDate</code></li>
-	 *   <li><code>DateTimeByEpoch</code></li>
-	 *   <li><code>DateTimeByOccurrence</code></li>
-	 *   <li><code>DateTimeByUtcDate</code></li>
+	 *   <li><code>DateTime.now()</code></li>
+	 *   <li><code>DateTime.byValues(timeZone, year, month, day, hour, minute, second)</code></li>
+	 *   <li><code>DateTime.byEpoch(epoch)</code></li>
+	 *   <li><code>DateTime.byOccurrence(timeZone, year, month, hour, minute, second, dayOfWeek, occurrences)</code></li>
+	 *   <li><code>DateTime.byDate(timeZone, date)</code></li>
+	 *   <li><code>DateTime.byUtcDate(date)</code></li>
 	 * </ul>
-	 * 
-	 * <p>Several creational subclasses classes that follow the naming convention of DateTimeByXXX where XXX is some 
-	 * other means to create a date by. For instance: a DateTime can be created by the unix epoch:</p>
-	 * 
+	 * 	  
 	 * <listing>
+	 * 
+	 * // create a DateTime using the current time
+	 * var dateTime:DateTime = DateTime.now();
+	 * 
+	 * // create a DateTime by values
+	 * var dateTime:DateTime = DateTime.byValues(TimeZone.UTC, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
+	 * 
 	 * // create a DateTime by unix epoch
-	 * var dateTime:DateTime = new DateTimeByEpoch(TimeZone.AMERICA_LOS_ANGELES, 1283734140000);
+	 * var dateTime:DateTime = DateTime.byEpoch(TimeZone.AMERICA_LOS_ANGELES, 1283734140000);
+	 * 
+	 * // create a DateTime by occurence (Thanksgiving 2010 at 12:00:00 p.m. pst)
+     * var dateTime:DateTime = new DateTime.byOccurrence(UsTimeZone.PST, 2010, DateTimeConstant.NOV, 12, 0, 0, DateTimeConstant.THURSDAY, 4);   
 	 * </listing>
 	 * 
 	 * <p><b>Changing TimeZone</b></p>
@@ -55,8 +63,9 @@ package sb.datetime
 	 * that has been converted to the desired TimeZone.</p>
 	 * 
 	 * <listing>
+	 * 
 	 * // create a date in Eastern Standard Time
-	 * var dateTime:DateTime = new DateTime(UsTimeZone.EST, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
+	 * var dateTime:DateTime = DateTime.byValues(UsTimeZone.EST, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 	 * 
 	 * // change to Pacific Standard Time (3 hour difference)
 	 * dateTime = dateTime.changeTimeZone(UsTimeZone.PST);
@@ -68,6 +77,7 @@ package sb.datetime
 	 * since midnight January 1, 1970 (Unix epoch).</p>
 	 * 
 	 * <listing>
+	 * 
 	 * // create a date to in Eastern Standard Time
 	 * var estDateTime:DateTime = new DateTime(UsTimeZone.EST, 2010, DateTimeConstant.DEC, 25, 12, 0, 0);
 	 * 
@@ -99,6 +109,7 @@ package sb.datetime
 	 * DateTime cannot be changed; these add methods create a new DateTime object with added 
 	 * values.</p>
 	 * 
+	 * <p>Examples of creating a DateTime</p>
 	 * <listing>
 	 * // create a date to perform math on
 	 * var dateTime:DateTime = new DateTime(UsTimeZone.PST, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
@@ -113,10 +124,6 @@ package sb.datetime
 	 * dateTime = dateTime.add(0, 1, 0, -1, 0, 0);
 	 * </listing>
 	 * 
-	 * @see DateTimeByDate
-	 * @see DateTimeByEpoch
-	 * @see DateTimeByOccurrence
-	 * @see DateTimeByUtcDate
 	 * @see TimeZone
 	 * @see UsTimeZone
 	 * 
@@ -391,6 +398,17 @@ package sb.datetime
 		public function toDate():Date {
 			// copy date to make sure the original can't be changed
 			return new Date(date);
+		}
+		
+		/**
+		 * <p>Creates a new DateTime based on the current time on the client
+		 * computer. The DateTime will be in UTC time and the values will be
+		 * based off the UTC values off a new Date object.</p>
+		 * 
+		 * @return A DateTime in UTC TimeZone using the values from the current time on the Client computer.
+		 */
+		public static function now():DateTime {
+			return DateTime.byUtcDate(new Date());
 		}
 		
 		/**

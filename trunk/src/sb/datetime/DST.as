@@ -25,6 +25,8 @@ package sb.datetime
 	import flash.utils.Dictionary;
 	
 	/**
+	 * @private
+	 * 
 	 * <p>Daylight Savings Time (DST)</p>
 	 * 
 	 * <p><i>This currently only supports US DST laws post 2007.</i></p>
