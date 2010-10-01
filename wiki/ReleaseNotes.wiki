@@ -3,3 +3,6 @@
 = Release Notes =
 
 ==Version 1.0.0==
+September 6th 2010
+http://code.google.com/p/flex-date-time/downloads/detail?name=FlexDateTime-1.0.0.swc&can=2&q= FlexDateTime-1.0.0.swc]
+Supports All US Time Zones after 2007. Dates before 2007 will not observe DST correctly.
