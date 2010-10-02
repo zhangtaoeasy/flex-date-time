@@ -2,6 +2,14 @@
 
 = Release Notes =
 
-|| Version || Release Date || Download || asdoc || Support || Notes || 
-|| 1.0.0 ||  9/6/2010 || [http://code.google.com/p/flex-date-time/downloads/detail?name=FlexDateTime-1.0.0.swc&can=2&q= FlexDateTime-1.0.0.swc] || [http://flex-date-time.googlecode.com/svn/tags/1.0.0/asdoc/index.html asdoc]  ||US Time Zones after 2007 || ||
-|| 2.0.0 ||  10/1/2010 || [http://code.google.com/p/flex-date-time/downloads/detail?name=FlexDateTime-2.0.0.swc&can=2&q= FlexDateTime-2.0.0.swc] || [http://flex-date-time.googlecode.com/svn/tags/2.0.0/asdoc/index.html asdoc]  || US Time Zones after 2007 || Reworked creation of `DateTime` ||
+|| Release: Trunk || ||
+|| work in progress, not for production use || ||
+|| download || asdoc ||
+|| demo || demo source ||
+|| test || test source ||
+
+
+|| Version || Release Date || Download || asdoc || demo || test || Supports ||  
+|| 1.0.0 ||  9/6/2010 || [http://code.google.com/p/flex-date-time/downloads/detail?name=FlexDateTime-1.0.0.swc&can=2&q= FlexDateTime-1.0.0.swc] || [http://flex-date-time.googlecode.com/svn/tags/1.0.0/asdoc/index.html asdoc]  || NA || NA || US Time Zones after 2007 ||
+|| 2.0.0 ||  10/1/2010 || [http://code.google.com/p/flex-date-time/downloads/detail?name=FlexDateTime-2.0.0.swc&can=2&q= FlexDateTime-2.0.0.swc] || [http://flex-date-time.googlecode.com/svn/tags/2.0.0/asdoc/index.html asdoc] || NA || NA || US Time Zones after 2007 ||
+|| Trunk ||  NA || NA || [http://flex-date-time.googlecode.com/svn/trunk/dateTime/asdoc/index.html asdoc] || [https://flex-date-time.googlecode.com/svn/trunk/demo/html/FlexDateTimeDemo.html demo] || [https://flex-date-time.googlecode.com/svn/trunk/test/html/FlexDateTimeTester.html test] ||  ||
