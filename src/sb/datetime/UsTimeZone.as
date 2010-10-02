@@ -137,11 +137,11 @@ package sb.datetime
 		public static const HST:TimeZone = TimeZone.PACIFIC_HONOLULU;
 	
 		/**
-		 * Returns the standard US Time Zones
+		 * Returns the standard US Time Zones as a Vector
 		 * 
 		 * @return A vector of the 7 standard US TimeZones
 		 */
-		public static function get ALL():Vector.<TimeZone> {
+		public static function get ALL_AS_VECTOR():Vector.<TimeZone> {
 			
 			var vector:Vector.<TimeZone> = new Vector.<TimeZone>();
 			vector.push(EST);
@@ -154,5 +154,24 @@ package sb.datetime
 			
 			return vector;
 		}
+        
+        /**
+         * Returns the standard US Time Zones as an Array
+         * 
+         * @return An array of the 7 standard US TimeZones
+         */
+        public static function get ALL_AS_ARRAY():Array {
+            
+            var array:Array = new Array();
+            array.push(EST);
+            array.push(CST);
+            array.push(MST);
+            array.push(ARIZONA);
+            array.push(PST);
+            array.push(AKST);
+            array.push(HST);
+            
+            return array;
+        }
 	}
 }
