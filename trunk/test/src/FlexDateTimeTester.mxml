@@ -4,7 +4,7 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx" 
                xmlns:adobe="http://www.adobe.com/2009/flexUnitUIRunner"
                minWidth="955" minHeight="600" 
-               creationComplete="onCreationComplete()" viewSourceURL="srcview/index.html">
+               creationComplete="onCreationComplete()">
     <fx:Script>
         <![CDATA[
             import flash.net.navigateToURL;
