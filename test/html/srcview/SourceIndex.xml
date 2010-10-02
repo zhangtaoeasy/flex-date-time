@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of FlexDateTimeTester</title>
+	<nodes>
+		<node label="bin">
+		</node>
+		<node label="html-template">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node icon="htmlIcon" label="index.template.html" url="source/html-template/index.template.html"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="libs">
+			<node label="flexunit-4.0.0.swc" url="source/libs/flexunit-4.0.0.swc"/>
+			<node label="flexunit-aircilistener-4.0.0.swc" url="source/libs/flexunit-aircilistener-4.0.0.swc"/>
+			<node label="flexunit-cilistener-4.0.0.swc" url="source/libs/flexunit-cilistener-4.0.0.swc"/>
+			<node label="flexunit-flexcoverlistener-4.0.0.swc" url="source/libs/flexunit-flexcoverlistener-4.0.0.swc"/>
+			<node label="flexunit-uilistener-4.0.0.swc" url="source/libs/flexunit-uilistener-4.0.0.swc"/>
+		</node>
+		<node label="src">
+			<node icon="packageIcon" label="sb.datetime" expanded="true">
+				<node icon="actionScriptIcon" label="DateTimeByEpochTest.as" url="source/sb/datetime/DateTimeByEpochTest.as.html"/>
+				<node icon="actionScriptIcon" label="DateTimeByOccurrenceTest.as" url="source/sb/datetime/DateTimeByOccurrenceTest.as.html"/>
+				<node icon="actionScriptIcon" label="DateTimeByUtcDateTest.as" url="source/sb/datetime/DateTimeByUtcDateTest.as.html"/>
+				<node icon="actionScriptIcon" label="DateTimeMathTest.as" url="source/sb/datetime/DateTimeMathTest.as.html"/>
+				<node icon="actionScriptIcon" label="DateTimeTest.as" url="source/sb/datetime/DateTimeTest.as.html"/>
+				<node icon="actionScriptIcon" label="DstTest.as" url="source/sb/datetime/DstTest.as.html"/>
+			</node>
+			<node icon="mxmlAppIcon" selected="true" label="FlexDateTimeTester.mxml" url="source/FlexDateTimeTester.mxml.html"/>
+		</node>
+	</nodes>
+	<zipfile label="Download source (ZIP, 439K)" url="FlexDateTimeTester.zip">
+	</zipfile>
+	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex4_sdk_download">
+	</sdklink>
+</index>
