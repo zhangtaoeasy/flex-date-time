@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               minWidth="955" minHeight="600" 
+               creationComplete="onCreationComplete()" viewSourceURL="srcview/index.html">
+    <fx:Style>
+        @namespace s "library://ns.adobe.com/flex/spark";
+        @namespace mx "library://ns.adobe.com/flex/mx";
+        
+        s|Application {
+            font-size: 16;
+            color: #333333;
+        }
+        
+        .info {
+            font-size: 12;
+            color: #666666;
+        }
+        
+    </fx:Style>
+
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayList;
+            import mx.events.FlexEvent;
+            
+            import sb.datetime.DateTime;
+            import sb.datetime.TimeZone;
+            import sb.datetime.UsTimeZone;
+            
+            [Bindable]
+            private var dateTime:DateTime;
+    
+            [Bindable]
+            private var differentTimeZone:DateTime;
+            
+            protected function onCreationComplete():void {
+                initValues();
+            }
+            
+            private function initValues():void {
+                var now:DateTime = DateTime.now(TimeZone.UTC);
+                
+                timeZoneField.selectedItem = now.timeZone;
+                yearField.value = now.year;
+                monthField.value = now.month;
+                dayField.value = now.day;
+                hourField.value = now.hour;
+                minuteField.value = now.minute;
+                secondField.value = now.second;
+                
+                changeTimeZoneField.selectedItem = TimeZone.UTC;
+                
+                dateTime = now;
+                differentTimeZone = dateTime.changeTimeZone(changeTimeZoneField.selectedItem as TimeZone);
+            }
+            
+            private function onCreate():void
+            {
+                dateTime = DateTime.byValues(
+                    timeZoneField.selectedItem as TimeZone,
+                    yearField.value,
+                    monthField.value,
+                    dayField.value,
+                    hourField.value,
+                    minuteField.value,
+                    secondField.value
+                );
+                
+                differentTimeZone = dateTime.changeTimeZone(changeTimeZoneField.selectedItem as TimeZone);
+            }
+            
+            private function updateDifferentTimeZone():void {
+                
+                differentTimeZone = dateTime.changeTimeZone(changeTimeZoneField.selectedItem as TimeZone)
+            }
+
+        ]]>
+    </fx:Script>
+    <fx:Declarations>
+        <mx:DateFormatter id="df" formatString="EEEE, MMMM. D, YYYY at L:NN:SS A"/>
+    </fx:Declarations>
+    
+    <s:VGroup horizontalCenter="0" verticalCenter="0">
+        <mx:Form defaultButton="{createButton}">
+            <mx:FormItem label="TimeZone">
+                <mx:ComboBox id="timeZoneField" 
+                            dataProvider="{new ArrayList(UsTimeZone.ALL_AS_ARRAY.concat(TimeZone.UTC))}" 
+                            labelField="id" height="35"/>
+            </mx:FormItem>
+            <mx:FormItem label="Year">
+                <s:HGroup verticalAlign="middle">
+                    <s:NumericStepper id="yearField" minimum="0" maximum="9999"/>
+                    <s:Label styleName="info" text="The full year (ex: 2010)"/>
+                </s:HGroup>
+            </mx:FormItem>
+            <mx:FormItem label="Month">
+                <s:HGroup verticalAlign="middle">
+                    <s:NumericStepper id="monthField" minimum="0" maximum="11"/>
+                    <s:Label styleName="info" text="The month (0 for January, 1 for February, and so on)"/>
+                </s:HGroup>
+            </mx:FormItem>
+            <mx:FormItem label="Day">
+                <s:HGroup verticalAlign="middle">
+                    <s:NumericStepper id="dayField" minimum="1" maximum="31"/>
+                    <s:Label styleName="info" text="The day of the month (1-31)"/>
+                </s:HGroup>
+            </mx:FormItem>
+            <mx:FormItem label="Hour">
+                <s:HGroup verticalAlign="middle">
+                    <s:NumericStepper id="hourField" minimum="0" maximum="23"/>
+                    <s:Label styleName="info" text="The hour of the day (0-23) (0=midnight, 23=11pm)"/>
+                </s:HGroup>
+            </mx:FormItem>
+            <mx:FormItem label="Minute">
+                <s:HGroup verticalAlign="middle">
+                    <s:NumericStepper id="minuteField" minimum="0" maximum="59"/>
+                    <s:Label styleName="info" text="The minute (0-59) of the hour"/>
+                </s:HGroup>
+            </mx:FormItem>
+            <mx:FormItem label="Second">
+                <s:HGroup verticalAlign="middle">
+                    <s:NumericStepper id="secondField" minimum="0" maximum="59"/>
+                    <s:Label styleName="info" text="The second (0-59) of the minute"/>
+                </s:HGroup>
+            </mx:FormItem>
+            <mx:FormItem>
+                <s:Button id="createButton" label="Update" click="onCreate()" 
+                          height="35" width="150"/>
+            </mx:FormItem>
+        </mx:Form>
+        <s:Group height="20"/>
+        <s:VGroup width="100%" horizontalAlign="center" paddingBottom="30">
+            <s:Label fontSize="20" fontWeight="bold" text="{df.format(dateTime.toDate()) + ' ' + dateTime.timeZone.id} "/>
+        </s:VGroup>
+        <s:HGroup width="100%" horizontalAlign="center" verticalAlign="middle">
+            <s:Label text="Show result in another Time Zone"/>
+            <mx:ComboBox id="changeTimeZoneField" 
+                         dataProvider="{new ArrayList(UsTimeZone.ALL_AS_ARRAY.concat(TimeZone.UTC))}" 
+                         selectedItem="{differentTimeZone.timeZone}"
+                         change="updateDifferentTimeZone()"
+                         labelField="id" height="35"/>
+        </s:HGroup>
+        <s:VGroup width="100%" horizontalAlign="center" paddingTop="10">
+            <s:Label fontSize="20" fontWeight="bold" text="{df.format(differentTimeZone.toDate()) + ' ' + differentTimeZone.timeZone.id} "/>
+        </s:VGroup>
+    </s:VGroup>
+    
+</s:Application>
