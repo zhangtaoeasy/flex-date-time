@@ -33,7 +33,7 @@ package sb.datetime
 	 * Creational methods to achieve multiple constructors.</i></p>
 	 * 
 	 * <ul>
-	 *   <li><code>DateTime.now()</code></li>
+	 *   <li><code>DateTime.now(timeZone)</code></li>
 	 *   <li><code>DateTime.byValues(timeZone, year, month, day, hour, minute, second)</code></li>
 	 *   <li><code>DateTime.byEpoch(epoch)</code></li>
 	 *   <li><code>DateTime.byOccurrence(timeZone, year, month, hour, minute, second, dayOfWeek, occurrences)</code></li>
@@ -44,7 +44,7 @@ package sb.datetime
 	 * <listing>
 	 * 
 	 * // create a DateTime using the current time
-	 * var dateTime:DateTime = DateTime.now();
+	 * var dateTime:DateTime = DateTime.now(timeZone);
 	 * 
 	 * // create a DateTime by values
 	 * var dateTime:DateTime = DateTime.byValues(TimeZone.UTC, 2010, DateTimeConstant.SEP, 6, 0, 0, 0);
@@ -299,7 +299,7 @@ package sb.datetime
 			
 			var newOffset:int = new Offset(timeZone).calc();
 			var offset:int = newOffset - this.offset;
-			var newDate:Date = new Date(year, month, day, hour, minute, 0, offset);
+			var newDate:Date = new Date(year, month, day, hour, minute, second, offset);
 			
 			if(new DST(timeZone, newDate.fullYear, newDate.month, newDate.date, newDate.hours, newDate.minutes).isDst()) 
 				newDate.hours += 1; 
@@ -402,13 +402,14 @@ package sb.datetime
 		
 		/**
 		 * <p>Creates a new DateTime based on the current time on the client
-		 * computer. The DateTime will be in UTC time and the values will be
-		 * based off the UTC values off a new Date object.</p>
+		 * computer. The DateTime will use the TimeZone passed and the values.</p>
 		 * 
-		 * @return A DateTime in UTC TimeZone using the values from the current time on the Client computer.
+         * @param timeZone The TimeZone to represent the time for now
+         * 
+		 * @return A DateTime in TimeZone provided using the values from the current time on the Client computer.
 		 */
-		public static function now():DateTime {
-			return DateTime.byUtcDate(new Date());
+		public static function now(timeZone:TimeZone):DateTime {
+			return DateTime.byDate(timeZone, new Date());
 		}
 		
 		/**

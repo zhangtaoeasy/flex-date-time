@@ -134,7 +134,7 @@ package sb.datetime
 			if(null != timeZone) 
 				return timeZone;
 			else {
-				for each(timeZone in ALL) {
+				for each(timeZone in ALL_AS_VECTOR) {
 					if(timeZone.id == id) {
 						timeZoneMap[id] = timeZone;
 						return timeZone;
@@ -146,13 +146,13 @@ package sb.datetime
 		}
 		
 		/**
-		 * <p>Returns All the supported TimeZones.</p>
+		 * <p>Returns All the supported TimeZones as a Vector.</p>
 		 * 
 		 * <p><i>Except UTC which isn't really a TimeZone</i></p>
 		 * 
 		 * @return All the TimeZones supported
 		 */
-		public static function get ALL():Vector.<TimeZone> {
+		public static function get ALL_AS_VECTOR():Vector.<TimeZone> {
 			
 			var vector:Vector.<TimeZone> = new Vector.<TimeZone>();
 			vector.push(AMERICA_NEW_YORK);
@@ -185,6 +185,47 @@ package sb.datetime
 			
 			return vector;
 		}
+        
+        /**
+         * <p>Returns All the supported TimeZones as an Array.</p>
+         * 
+         * <p><i>Except UTC which isn't really a TimeZone</i></p>
+         * 
+         * @return All the TimeZones supported
+         */
+        public static function get ALL_AS_ARRAY():Array {
+            
+            var array:Array = new Array();
+            array.push(AMERICA_NEW_YORK);
+            array.push(AMERICA_DETROIT);
+            array.push(AMERICA_KENTUCKY_LOUISVILLE);
+            array.push(AMERICA_KENTUCKY_MONTICELLO);
+            array.push(AMERICA_INDIANA_INDIANAPOLIS);
+            array.push(AMERICA_INDIANA_VINCENNES);
+            array.push(AMERICA_INDIANA_WINAMAC);
+            array.push(AMERICA_INDIANA_MARENGO);
+            array.push(AMERICA_INDIANA_PETERSBURG);
+            array.push(AMERICA_INDIANA_VEVAY);
+            array.push(AMERICA_CHICAGO);
+            array.push(AMERICA_INDIANA_TELL_CITY);
+            array.push(AMERICA_INDIANA_KNOX);
+            array.push(AMERICA_MENOMINEE);
+            array.push(AMERICA_NORTH_DAKOTA_CENTER);
+            array.push(AMERICA_NORTH_DAKOTA_NEW_SALEM);
+            array.push(AMERICA_DENVER);
+            array.push(AMERICA_BOISE);
+            array.push(AMERICA_SHIPROCK);
+            array.push(AMERICA_PHOENIX);
+            array.push(AMERICA_LOS_ANGELES);
+            array.push(AMERICA_ANCHORAGE);
+            array.push(AMERICA_JUNEAU);
+            array.push(AMERICA_YAKUTAT);
+            array.push(AMERICA_NOME);
+            array.push(AMERICA_ADAK);
+            array.push(PACIFIC_HONOLULU);
+            
+            return array;
+        }
 	}
 }
 
