@@ -25,7 +25,9 @@
             import mx.collections.ArrayList;
             import mx.events.FlexEvent;
             
+            import sb.datetime.DST;
             import sb.datetime.DateTime;
+            import sb.datetime.DateTimeConstant;
             import sb.datetime.TimeZone;
             import sb.datetime.UsTimeZone;
             
@@ -40,7 +42,7 @@
             }
             
             private function initValues():void {
-                var now:DateTime = DateTime.now(TimeZone.UTC);
+                var now:DateTime = DateTime.now(guessTimeZone());
                 
                 timeZoneField.selectedItem = now.timeZone;
                 yearField.value = now.year;
@@ -56,7 +58,42 @@
                 differentTimeZone = dateTime.changeTimeZone(changeTimeZoneField.selectedItem as TimeZone);
             }
             
-            private function onCreate():void
+            private function guessTimeZone():TimeZone {
+                var date:Date = new Date();
+                var offset:int = -(date.timezoneOffset * 60 * 1000);
+                var timeZone:TimeZone;
+                var dstTimeZone:TimeZone;
+                
+                if(offset == DateTimeConstant.UTC_MINUS_5) {
+                    timeZone = UsTimeZone.EST;
+                    dstTimeZone = UsTimeZone.CST;
+                }
+                else if(offset == DateTimeConstant.UTC_MINUS_6) {
+                    timeZone = UsTimeZone.CST;
+                    dstTimeZone = UsTimeZone.MST;
+                }
+                else if(offset == DateTimeConstant.UTC_MINUS_7) {
+                    timeZone = UsTimeZone.MST;
+                    dstTimeZone = UsTimeZone.PST;
+                }
+                else if(offset == DateTimeConstant.UTC_MINUS_8) {
+                    timeZone = UsTimeZone.PST;
+                    dstTimeZone = UsTimeZone.AKST;
+                }
+                else {
+                    timeZone = TimeZone.UTC;
+                    dstTimeZone = TimeZone.UTC;
+                }
+                
+                var dst:Boolean = new DST(dstTimeZone, date.fullYear, date.month, date.date, date.hours, date.minutes).isDst();
+                
+                if(dst)
+                    return dstTimeZone;
+                else
+                    return timeZone
+            }
+            
+            private function onCreateClick():void
             {
                 dateTime = DateTime.byValues(
                     timeZoneField.selectedItem as TimeZone,
@@ -126,7 +163,7 @@
                 </s:HGroup>
             </mx:FormItem>
             <mx:FormItem>
-                <s:Button id="createButton" label="Update" click="onCreate()" 
+                <s:Button id="createButton" label="Update" click="onCreateClick()" 
                           height="35" width="150"/>
             </mx:FormItem>
         </mx:Form>
