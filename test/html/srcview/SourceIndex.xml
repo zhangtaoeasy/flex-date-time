@@ -4,6 +4,63 @@
 	<nodes>
 		<node label="bin">
 		</node>
+		<node label="html">
+			<node label="history">
+				<node icon="cssIcon" label="history.css" url="source/html/history/history.css.html"/>
+				<node label="history.js" url="source/html/history/history.js.txt"/>
+				<node icon="htmlIcon" label="historyFrame.html" url="source/html/history/historyFrame.html"/>
+			</node>
+			<node label="srcview">
+				<node label="source">
+					<node label="html-template">
+						<node label="history">
+							<node icon="htmlIcon" label="history.css.html" url="source/html/srcview/source/html-template/history/history.css.html"/>
+							<node label="history.js.txt" url="source/html/srcview/source/html-template/history/history.js.txt"/>
+							<node icon="htmlIcon" label="historyFrame.html" url="source/html/srcview/source/html-template/history/historyFrame.html"/>
+						</node>
+						<node icon="htmlIcon" label="index.template.html" url="source/html/srcview/source/html-template/index.template.html"/>
+						<node icon="swfIcon" label="playerProductInstall.swf" url="source/html/srcview/source/html-template/playerProductInstall.swf"/>
+						<node label="swfobject.js.txt" url="source/html/srcview/source/html-template/swfobject.js.txt"/>
+					</node>
+					<node label="libs">
+						<node label="flexunit-4.0.0.swc" url="source/html/srcview/source/libs/flexunit-4.0.0.swc"/>
+						<node label="flexunit-aircilistener-4.0.0.swc" url="source/html/srcview/source/libs/flexunit-aircilistener-4.0.0.swc"/>
+						<node label="flexunit-cilistener-4.0.0.swc" url="source/html/srcview/source/libs/flexunit-cilistener-4.0.0.swc"/>
+						<node label="flexunit-flexcoverlistener-4.0.0.swc" url="source/html/srcview/source/libs/flexunit-flexcoverlistener-4.0.0.swc"/>
+						<node label="flexunit-uilistener-4.0.0.swc" url="source/html/srcview/source/libs/flexunit-uilistener-4.0.0.swc"/>
+					</node>
+					<node label="sb">
+						<node label="datetime">
+							<node icon="htmlIcon" label="DateTimeByEpochTest.as.html" url="source/html/srcview/source/sb/datetime/DateTimeByEpochTest.as.html"/>
+							<node icon="htmlIcon" label="DateTimeByOccurrenceTest.as.html" url="source/html/srcview/source/sb/datetime/DateTimeByOccurrenceTest.as.html"/>
+							<node icon="htmlIcon" label="DateTimeByUtcDateTest.as.html" url="source/html/srcview/source/sb/datetime/DateTimeByUtcDateTest.as.html"/>
+							<node icon="htmlIcon" label="DateTimeMathTest.as.html" url="source/html/srcview/source/sb/datetime/DateTimeMathTest.as.html"/>
+							<node icon="htmlIcon" label="DateTimeTest.as.html" url="source/html/srcview/source/sb/datetime/DateTimeTest.as.html"/>
+							<node icon="htmlIcon" label="DstTest.as.html" url="source/html/srcview/source/sb/datetime/DstTest.as.html"/>
+						</node>
+					</node>
+					<node icon="htmlIcon" label="FlexDateTimeTester.mxml.html" url="source/html/srcview/source/FlexDateTimeTester.mxml.html"/>
+				</node>
+				<node label="FlexDateTimeTester.zip" url="source/html/srcview/FlexDateTimeTester.zip"/>
+				<node icon="htmlIcon" label="index.html" url="source/html/srcview/index.html"/>
+				<node icon="swfIcon" label="playerProductInstall.swf" url="source/html/srcview/playerProductInstall.swf"/>
+				<node label="SourceIndex.xml" url="source/html/srcview/SourceIndex.xml.txt"/>
+				<node icon="cssIcon" label="SourceStyles.css" url="source/html/srcview/SourceStyles.css.html"/>
+				<node icon="htmlIcon" label="SourceTree.html" url="source/html/srcview/SourceTree.html"/>
+				<node icon="swfIcon" label="SourceTree.swf" url="source/html/srcview/SourceTree.swf"/>
+				<node label="swfobject.js" url="source/html/srcview/swfobject.js.txt"/>
+			</node>
+			<node icon="htmlIcon" label="FlexDateTimeTester.html" url="source/html/FlexDateTimeTester.html"/>
+			<node icon="swfIcon" label="FlexDateTimeTester.swf" url="source/html/FlexDateTimeTester.swf"/>
+			<node label="framework_4.1.0.16076.swz" url="source/html/framework_4.1.0.16076.swz"/>
+			<node label="osmf_flex.4.0.0.13495.swz" url="source/html/osmf_flex.4.0.0.13495.swz"/>
+			<node icon="swfIcon" label="playerProductInstall.swf" url="source/html/playerProductInstall.swf"/>
+			<node label="rpc_4.1.0.16076.swz" url="source/html/rpc_4.1.0.16076.swz"/>
+			<node label="spark_4.1.0.16076.swz" url="source/html/spark_4.1.0.16076.swz"/>
+			<node label="sparkskins_4.1.0.16076.swz" url="source/html/sparkskins_4.1.0.16076.swz"/>
+			<node label="swfobject.js" url="source/html/swfobject.js.txt"/>
+			<node label="textLayout_1.1.0.604.swz" url="source/html/textLayout_1.1.0.604.swz"/>
+		</node>
 		<node label="html-template">
 			<node label="history">
 				<node icon="cssIcon" label="history.css" url="source/html-template/history/history.css.html"/>
@@ -33,7 +90,7 @@
 			<node icon="mxmlAppIcon" selected="true" label="FlexDateTimeTester.mxml" url="source/FlexDateTimeTester.mxml.html"/>
 		</node>
 	</nodes>
-	<zipfile label="Download source (ZIP, 439K)" url="FlexDateTimeTester.zip">
+	<zipfile label="Download source (ZIP, 3351K)" url="FlexDateTimeTester.zip">
 	</zipfile>
 	<sdklink label="Download Flex SDK" url="http://www.adobe.com/go/flex4_sdk_download">
 	</sdklink>
