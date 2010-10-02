@@ -42,10 +42,5 @@
     <s:layout>
         <s:VerticalLayout/>
     </s:layout>
-    <s:HGroup verticalAlign="middle" width="100%" paddingRight="10" paddingLeft="10" paddingTop="10">
-        <s:Button label="click to view source" 
-                  click="navigateToURL(new URLRequest('srcview/index.html'))"
-                  emphasized="true" fontSize="18" height="35" width="100%"/>
-    </s:HGroup>
     <adobe:TestRunnerBase id="testRunner"/>
 </s:Application>
