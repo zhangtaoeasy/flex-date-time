@@ -7,8 +7,6 @@
                creationComplete="onCreationComplete()">
     <fx:Script>
         <![CDATA[
-            import flash.net.navigateToURL;
-            
             import org.flexunit.listeners.UIListener;
             import org.flexunit.runner.FlexUnitCore;
             
