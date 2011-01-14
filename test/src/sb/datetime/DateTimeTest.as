@@ -250,6 +250,16 @@ package sb.datetime
 			assertOffset(dateTime, TimeZone.AMERICA_ANCHORAGE, -2);
 			assertOffset(dateTime, TimeZone.PACIFIC_HONOLULU, 0);
 		}
+        
+        [Test]
+        public function testSecondsAfterChangeTimeZone():void {
+            
+            var dateTime:DateTime = DateTime.byValues(TimeZone.PACIFIC_HONOLULU, 2010, DateTimeConstant.AUG, 25, 12, 1, 1);
+            var seconds1:int = dateTime.second;
+            var seconds2:int = dateTime.changeTimeZone(TimeZone.AMERICA_LOS_ANGELES).second;
+            
+            assertEquals(seconds1, seconds2);
+        }
 		
 		private function assertOffset(
 			dateTime:DateTime, 
